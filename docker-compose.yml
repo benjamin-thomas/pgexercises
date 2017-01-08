@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  psql:
+    image: postgres:9.3.12
+    command: /bin/bash
+    volumes:
+      - /tmp/clubdata:/tmp/clubdata
+    environment:
+      - PGHOST=pg
+      - PGUSER=postgres
+      - PGDATABASE=exercises
+    command: /bin/bash
+    depends_on:
+      - pg
+
+  pg:
+    image: postgres:9.3.12
+    logging:
+      options:
+        max-size: '50m'

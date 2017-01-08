@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -x
+export PGUSER=postgres
+export PGHOST=$(docker inspect --format '{{ .NetworkSettings.Networks.pgexercises_default.IPAddress }}' pgexercises_pg_1)
+export PGDATABASE=exercises
+
+psql
