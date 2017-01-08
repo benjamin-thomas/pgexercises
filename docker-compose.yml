@@ -3,7 +3,7 @@ version: '2'
 services:
 
   psql:
-    image: postgres:9.3.12
+    image: postgres
     command: /bin/bash
     volumes:
       - /tmp/clubdata:/tmp/clubdata
@@ -16,7 +16,7 @@ services:
       - pg
 
   pg:
-    image: postgres:9.3.12
+    image: postgres
     logging:
       options:
         max-size: '50m'
